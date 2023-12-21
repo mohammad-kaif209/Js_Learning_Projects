@@ -25,6 +25,7 @@ nav{
     align-items: center;
     flex-direction: column;
 }
+/* ------------------------------------project 1------------------------------------------ */
 .projectBtns{
     text-decoration: none;
     color: rgb(255, 255, 255);
@@ -68,4 +69,30 @@ nav{
 #yellow{
     background-color: yellow;
 }
+
+/* #project-2 */
+/* ------------------------------------------------------------- */
+#calculate{
+    padding: 5px 30px;
+    font-size: 1em;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+}
+#calculate:hover{
+    cursor: pointer;
+    background-color: rgb(253, 253, 204); 
+    color: black;
+}
+#form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#results{
+    margin:15px;
+}
+
+/* /----------------------------------------------- */
 
