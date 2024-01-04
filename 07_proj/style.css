@@ -126,6 +126,7 @@ nav{
 .container4 {
     display: flex;
     align-items: center;
+    flex-direction: column;
 }
 
 .subcontainer4 {
