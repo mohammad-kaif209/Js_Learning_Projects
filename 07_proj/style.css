@@ -25,7 +25,7 @@ nav{
     align-items: center;
     flex-direction: column;
 }
-/* ------------------------------------project 1------------------------------------------ */
+
 .projectBtns{
     text-decoration: none;
     color: rgb(255, 255, 255);
@@ -44,6 +44,8 @@ nav{
     justify-content: center;
     margin-top: 100px;
 }
+
+/* ------------------------------------project 1------------------------------------------ */
 .containerinprojects{
     display: flex;
     justify-content: center;
@@ -69,7 +71,9 @@ nav{
 #yellow{
     background-color: yellow;
 }
-
+#white{
+    background-color: white;
+}
 /* #project-2 */
 /* ------------------------------------------------------------- */
 #calculate{
