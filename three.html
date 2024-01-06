@@ -17,12 +17,16 @@
             console.log(str, Date.now());
         }
         document.querySelector('#start').addEventListener('click', ()=>{
-            toStop = setInterval(printMessage,1000,"kaif");
+            if(!toStop){
+                toStop = setInterval(printMessage,1000,"kaif");
+            }
         });
 
         document.querySelector('#stop').addEventListener('click', ()=>{
             clearInterval(toStop);
+            toStop = null;
             console.log("stopped");
+            
         });
         
 

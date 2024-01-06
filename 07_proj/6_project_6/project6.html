@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body style="color: white;">
+    <nav style="background-color: rgb(194, 226, 255);">
+        <a href="../index.html" class="navElement" id="home">Home</a>
+    </nav>
+    <h1>click start button to start changing background color <br>
+        click stop button to stop the changes </h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <script>
+        const RandomColorGeneration = () => {
+            let color = '#';
+            const hex = '0123456789ABCDEF';
+            for (let i = 0; i < 6; i++) {
+                let RandomGeneration = Math.floor(Math.random() * 16);
+                color += hex[RandomGeneration];
+            }
+            return color;
+        }
+        let IntervalId;
+        const startChangingColor = () => {
+            if (!IntervalId) {
+                IntervalId = setInterval(() => {
+                    document.body.style.backgroundColor = RandomColorGeneration();
+                }, 1000);
+            }
+        }
+        const stopChangingColor = () => {
+            clearInterval(IntervalId);
+            IntervalId = null;
+        }
+        document.querySelector("#start").addEventListener('click', startChangingColor);
+        document.querySelector("#stop").addEventListener('click', stopChangingColor);
+    </script>
+</body>
+
+</html>
