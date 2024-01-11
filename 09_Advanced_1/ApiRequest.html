@@ -19,24 +19,38 @@
         xhr.open('GET', Url);
         buttonAction.addEventListener('click', function () {
             xhr.onreadystatechange = function () {
-                console.log(xhr.readyState)
+                console.log(xhr.readyState);
+
                 if (xhr.readyState === xhr.DONE) {
                     let data = JSON.parse(this.responseText);
                     ManipulativeBlock.removeChild(buttonAction);
                     const createdImgTag = document.createElement(`img`);
-                    createdImgTag.src = 'https://anyimage.io/images/faq/bella.jpg';
-                    createdImgTag.alt = 'Error';
-                    ManipulativeBlock.appendChild(createdImgTag);
+                    // createdImgTag.src = 'https://anyimage.io/images/faq/bella.jpg';
+                    // createdImgTag.alt = 'Error';
+                    createdImgTag.setAttribute('src', 'https://anyimage.io/images/faq/bella.jpg');
+                    createdImgTag.setAttribute('alt', 'Error');
                     const addTextElement = document.createElement('h2');
+                    const createBtn = document.createElement('button');
                     const addtext = document.createTextNode(`Hello My name is = ${data.results[0].name.first} and my email id is = ${data.results[0].email}`);
                     addTextElement.appendChild(addtext);
+                    const addBtnText = document.createTextNode('go Back');
+                    createBtn.setAttribute('id', 'GetBack');
+                    createBtn.appendChild(addBtnText);
+                    ManipulativeBlock.appendChild(createdImgTag);
                     ManipulativeBlock.appendChild(addTextElement);
+                    ManipulativeBlock.appendChild(createBtn);
 
+                    const ClickOnGoBack = document.querySelector('#GetBack');
+
+                    ClickOnGoBack.addEventListener('click', function () {
+                        ManipulativeBlock.removeChild(createdImgTag);
+                        ManipulativeBlock.removeChild(addTextElement);
+                        ManipulativeBlock.removeChild(createBtn);
+                        ManipulativeBlock.appendChild(buttonAction);
+                    });
                 }
             }
             xhr.send();
-
-
         });
     </script>
 </body>
