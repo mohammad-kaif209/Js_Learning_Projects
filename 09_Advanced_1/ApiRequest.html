@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Request</title>
+</head>
+
+<body>
+    <div class="content">
+        <button id="clickBtn">click here</button>
+    </div>
+    <script>
+        const xhr = new XMLHttpRequest();
+        const Url = 'https://randomuser.me/api/';
+        const ManipulativeBlock = document.querySelector('.content');
+        const buttonAction = document.querySelector('#clickBtn');
+        xhr.open('GET', Url);
+        buttonAction.addEventListener('click', function () {
+            xhr.onreadystatechange = function () {
+                console.log(xhr.readyState)
+                if (xhr.readyState === xhr.DONE) {
+                    let data = JSON.parse(this.responseText);
+                    ManipulativeBlock.removeChild(buttonAction);
+                    const createdImgTag = document.createElement(`img`);
+                    createdImgTag.src = 'https://anyimage.io/images/faq/bella.jpg';
+                    createdImgTag.alt = 'Error';
+                    ManipulativeBlock.appendChild(createdImgTag);
+                    const addTextElement = document.createElement('h2');
+                    const addtext = document.createTextNode(`Hello My name is = ${data.results[0].name.first} and my email id is = ${data.results[0].email}`);
+                    addTextElement.appendChild(addtext);
+                    ManipulativeBlock.appendChild(addTextElement);
+
+                }
+            }
+            xhr.send();
+
+
+        });
+    </script>
+</body>
+
+
+</html>
